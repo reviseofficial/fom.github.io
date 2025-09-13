@@ -2,7 +2,9 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Unity WebGL Player | CShaders</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
@@ -19,6 +21,11 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
+
+<div id="fullscreenElement">Click to Go Fullscreen</div>
+
+
+    
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -99,5 +106,22 @@
       };
       document.body.appendChild(script);
     </script>
+<script>
+    const fullscreenElement = document.getElementById('fullscreenElement');
+
+    fullscreenElement.addEventListener('click', () => {
+      if (fullscreenElement.requestFullscreen) {
+        fullscreenElement.requestFullscreen();
+      } else if (fullscreenElement.webkitRequestFullscreen) { // Safari
+        fullscreenElement.webkitRequestFullscreen();
+      } else if (fullscreenElement.msRequestFullscreen) { // IE/Edge
+        fullscreenElement.msRequestFullscreen();
+      }
+    });
+  </script>
+
+
+
+    
   </body>
 </html>
